@@ -1,10 +1,11 @@
 # Boot
 
 boot_command = [
-    "yes",
-    "<enter>"
+  "<enter><wait2><enter><wait><f6><esc><wait>",
+  "linux /casper/vmlinuz autoinstall ds=nocloud;",
+  "<wait><enter>"
   ]
-boot_wait = "45s"
+boot_wait = "5s"
 
 # CD
 
