@@ -39,4 +39,7 @@ build {
   provisioner "shell" {
     inline = ["ls -l"]
   }
+  post-processor "vagrant" {
+  keep_input_artifact = true
+  }
 }

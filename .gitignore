@@ -1,4 +1,5 @@
 .DS_Store
 packer_cache/
 iso/
-output-source/
+output-*/
+*.box
