@@ -23,6 +23,8 @@ source "vmware-iso" "ubuntu" {
   iso_checksum = var.iso_checksum
   iso_urls = var.iso_urls
   memory = var.memory
+  network = "nat"
+  network_adapter_type = "vmxnet3"
   output_directory = "output/${var.vm_name}_vmware"
   shutdown_command = "echo '${var.ssh_password}' | sudo -S -E shutdown -P now"
   ssh_password = var.ssh_password

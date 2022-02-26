@@ -12,7 +12,10 @@ autoinstall:
         network:
             version: 2
             ethernets:
-                ens33:
+                ens160:
+                    dhcp4: true
+                    dhcp-identifier: mac            
+                ens32:
                     dhcp4: true
                     dhcp-identifier: mac
     packages:
