@@ -40,7 +40,7 @@ source "vmware-iso" "ubuntu" {
 build {
   sources = ["source.vmware-iso.ubuntu"]
   provisioner "shell" {
-    inline = ["ls -l"]
+    script = "scripts/vagrant.sh"
   }
   post-processor "checksum" {
   checksum_types = ["sha256"]
