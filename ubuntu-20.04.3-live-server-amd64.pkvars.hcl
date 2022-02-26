@@ -14,8 +14,8 @@ cd_label = "cidata"
 
 # ISO
 
-iso_urls = ["iso/ubuntu-20.04.3-live-server-amd64.iso", "https://releases.ubuntu.com/20.04/ubuntu-20.04.3-live-server-amd64.iso"]
-iso_checksum = "https://releases.ubuntu.com/20.04/SHA256SUMS"
+iso_urls = ["iso/ubuntu-20.04.3-live-server-amd64.iso"]
+iso_checksum = "f8e3086f3cea0fb3fefb29937ab5ed9d19e767079633960ccb50e76153effc98"
 
 # Headless
 
@@ -36,4 +36,4 @@ firmware = "bios"
 guest_os_type = "ubuntu64Guest"
 memory = 4096
 tools_upload_flavor = "linux"
-vm_name = "ubuntu-20.04.3-live-server-amd64"
+vm_name = "ubuntu-live-server-20.04.3"
