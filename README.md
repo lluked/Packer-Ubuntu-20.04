@@ -3,12 +3,11 @@
  
 Example Packer configuration to build a basic ubuntu-20.04.4-live-server-amd64 box with virtualbox-iso and vmware-iso builders.
 
-`networking.sh` and `vagrant.sh` scripts are from the [chef/bento](https://github.com/chef/bento) project and carry the `Apache-2.0 License`.
+`user-data` file templated from a `pkrtpl` template to set the correct network interface depending on build platform.
 
--   `networking.sh` ensures the network interface is set to `eth0`, to ensure a consistent interface name between builds.
--   `vagrant.sh` ensures the vagrant public key is installed to allow vagrant to connect to the outputted box. This is replaced by vagrant with a secure key.
+`vagrant.sh` script from the [chef/bento](https://github.com/chef/bento) project to ensure the vagrant public key is installed to allow vagrant to connect to the outputted box. This carries the `Apache-2.0 License`. 
 
-Credentials are defined in `cidata/user-data` and `variables.pkr.hcl` as `vagrant:vagrant`.
+Credentials are defined in `templates/user-data` and `variables.pkr.hcl` as `vagrant:vagrant`.
 
 Instructions:
 -   Read Notes

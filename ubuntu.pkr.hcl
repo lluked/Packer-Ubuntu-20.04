@@ -16,13 +16,16 @@ packer {
 ## Source blocks
 
 source "virtualbox-iso" "ubuntu" {
-  boot_command         = "${var.boot_command}"
-  boot_wait            = "${var.boot_wait_virtualbox}"
-  cd_files             = "${var.cd_files}"
-  cd_label             = "${var.cd_label}"
-  cpus                 = "${var.cpus}"
-  disk_size            = "${var.disk_size}"
-  export_opts          = [
+  boot_command           = "${var.boot_command}"
+  boot_wait              = "${var.boot_wait_virtualbox}"
+  cd_content             = {
+    "meta-data" = ""
+    "user-data" = templatefile("templates/user-data.pkrtpl.hcl", { interface = "enp0s3" })
+  }
+  cd_label               = "${var.cd_label}"
+  cpus                   = "${var.cpus}"
+  disk_size              = "${var.disk_size}"
+  export_opts            = [
     "--manifest", 
     "--vsys", "0"
     ]
@@ -53,7 +56,10 @@ source "virtualbox-iso" "ubuntu" {
 source "vmware-iso" "ubuntu" {
   boot_command           = "${var.boot_command}"
   boot_wait              = "${var.boot_wait_vmware}"
-  cd_files               = "${var.cd_files}"
+  cd_content             = {
+    "meta-data" = ""
+    "user-data" = templatefile("templates/user-data.pkrtpl.hcl", { interface = "ens33" })
+  }
   cd_label               = "${var.cd_label}"
   disk_size              = "${var.disk_size}"
   guest_os_type          = "ubuntu-64"
@@ -80,10 +86,7 @@ build {
 
   provisioner "shell" {
     execute_command = "echo '${var.ssh_password}' | sudo -S env {{ .Vars }} {{ .Path }}"
-    scripts         = [
-      "scripts/networking.sh",
-      "scripts/vagrant.sh"
-    ]
+    script          = "scripts/vagrant.sh"
   }
 
   post-processor "checksum" {

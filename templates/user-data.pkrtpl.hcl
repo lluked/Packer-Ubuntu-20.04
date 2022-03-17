@@ -8,6 +8,12 @@ autoinstall:
     keyboard:
         layout: gb
     locale: en_GB
+    network:
+        version: 2
+        ethernets:
+            ${interface}:
+                dhcp4: true
+                dhcp-identifier: mac
     ssh:
         install-server: yes
         allow-pw: yes
