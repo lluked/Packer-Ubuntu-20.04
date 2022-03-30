@@ -13,9 +13,9 @@ Credentials are defined in `cidata/user-data` and `variables.pkr.hcl` as `vagran
 Instructions:
 -   Read Notes
 -   Run `packer init .` to install required plugins.
--   Run `Packer build -only=vmware-iso.ubuntu .` for vmware build.
--   Run `Packer build -only=virtualbox-iso.ubuntu .` for virtualbox build.
--   Run `Packer build .` to build both.
+-   Run `packer build -only=vmware-iso.ubuntu .` for vmware build.
+-   Run `packer build -only=virtualbox-iso.ubuntu .` for virtualbox build.
+-   Run `packer build .` to build both.
 
 Notes:
 -   Timing is important, different hosts load at different speeds, boot_wait needs changing to suit the build host. Seperate variables exist for Virtualbox and VMWare.
